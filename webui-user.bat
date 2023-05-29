@@ -3,6 +3,6 @@
 set PYTHON=
 set GIT=
 set VENV_DIR=
-set COMMANDLINE_ARGS=--xformers --theme dark --api --autolaunch --no-half-vae --cors-allow-origins http://localhost:3000
+set COMMANDLINE_ARGS=--xformers --theme dark --api --autolaunch --nowebui --port 7860 --no-half-vae --cors-allow-origins http://localhost:3000
 
 call webui.bat
