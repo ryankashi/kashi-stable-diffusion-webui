@@ -30,6 +30,7 @@ from modules import devices
 from typing import Dict, List, Any
 import piexif
 import piexif.helper
+from contextlib import closing
 
 
 def upscaler_to_index(name: str):
@@ -145,6 +146,7 @@ def api_middleware(app: FastAPI):
                 console.print_exception(show_locals=True, max_frames=2, extra_lines=1, suppress=[anyio, starlette], word_wrap=False, width=min([console.width, 200]))
             else:
                 errors.report(message, exc_info=True)
+            # raise HTTPException(status_code=500) from e
         return JSONResponse(status_code=vars(e).get('status_code', 500), content=jsonable_encoder(err))
 
     @app.middleware("http")
@@ -324,19 +326,19 @@ class Api:
         args.pop('save_images', None)
 
         with self.queue_lock:
-            p = StableDiffusionProcessingTxt2Img(sd_model=shared.sd_model, **args)
-            p.scripts = script_runner
-            p.outpath_grids = opts.outdir_txt2img_grids
-            p.outpath_samples = opts.outdir_txt2img_samples
+            with closing(StableDiffusionProcessingTxt2Img(sd_model=shared.sd_model, **args)) as p:
+                p.scripts = script_runner
+                p.outpath_grids = opts.outdir_txt2img_grids
+                p.outpath_samples = opts.outdir_txt2img_samples
 
-            shared.state.begin()
-            if selectable_scripts is not None:
-                p.script_args = script_args
-                processed = scripts.scripts_txt2img.run(p, *p.script_args) # Need to pass args as list here
-            else:
-                p.script_args = tuple(script_args) # Need to pass args as tuple here
-                processed = process_images(p)
-            shared.state.end()
+                shared.state.begin()
+                if selectable_scripts is not None:
+                    p.script_args = script_args
+                    processed = scripts.scripts_txt2img.run(p, *p.script_args) # Need to pass args as list here
+                else:
+                    p.script_args = tuple(script_args) # Need to pass args as tuple here
+                    processed = process_images(p)
+                shared.state.end()
 
         b64images = list(map(encode_pil_to_base64, processed.images)) if send_images else []
 
@@ -380,20 +382,21 @@ class Api:
         args.pop('save_images', None)
 
         with self.queue_lock:
-            p = StableDiffusionProcessingImg2Img(sd_model=shared.sd_model, **args)
-            p.init_images = [decode_base64_to_image(x) for x in init_images]
-            p.scripts = script_runner
-            p.outpath_grids = opts.outdir_img2img_grids
-            p.outpath_samples = opts.outdir_img2img_samples
+            with closing(StableDiffusionProcessingImg2Img(sd_model=shared.sd_model, **args)) as p:
+                p.init_images = [decode_base64_to_image(x) for x in init_images]
+                p.scripts = script_runner
+                p.outpath_grids = opts.outdir_img2img_grids
+                p.outpath_samples = opts.outdir_img2img_samples
 
-            shared.state.begin()
-            if selectable_scripts is not None:
-                p.script_args = script_args
-                processed = scripts.scripts_img2img.run(p, *p.script_args) # Need to pass args as list here
-            else:
-                p.script_args = tuple(script_args) # Need to pass args as tuple here
-                processed = process_images(p)
-            shared.state.end()
+                shared.state.begin()
+                if selectable_scripts is not None:
+                    p.script_args = script_args
+                    processed = scripts.scripts_img2img.run(p, *p.script_args) # Need to pass args as list here
+                else:
+                    p.script_args = tuple(script_args) # Need to pass args as tuple here
+                    processed = process_images(p)
+                shared.state.end()
+
 
         b64images = list(map(encode_pil_to_base64, processed.images)) if send_images else []
 
