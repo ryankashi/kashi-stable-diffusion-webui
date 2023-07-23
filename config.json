@@ -10,5 +10,5 @@
   "ckpt_dir": "C:\\Users\\kashi\\Desktop\\StableDiffusion\\vlad-diffusion\\automatic\\models\\Stable-diffusion",
   "vae_dir": "C:\\Users\\kashi\\Desktop\\StableDiffusion\\vlad-diffusion\\automatic\\models\\VAE",
   "lora_dir": "C:\\Users\\kashi\\Desktop\\StableDiffusion\\vlad-diffusion\\automatic\\models\\Lora",
-  "embeddings_dir": "C:\\Users\\kashi\\Desktop\\StableDiffusion\\vlad-diffusion\\automatic\\models\\embeddings",
+  "embeddings_dir": "C:\\Users\\kashi\\Desktop\\StableDiffusion\\vlad-diffusion\\automatic\\models\\embeddings"
 }
