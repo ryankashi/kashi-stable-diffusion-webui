@@ -1,0 +1,14 @@
+{
+  "sd_backend": "original",
+  "sd_checkpoint_autoload": true,
+  "sd_model_checkpoint": "model.ckpt",
+  "sd_model_refiner": "None",
+  "sd_checkpoint_cache": 0,
+  "sd_vae_checkpoint_cache": 0,
+  "sd_vae": "Automatic",
+  "sd_model_dict": "None",
+  "ckpt_dir": "C:\\Users\\kashi\\Desktop\\StableDiffusion\\vlad-diffusion\\automatic\\models\\Stable-diffusion",
+  "vae_dir": "C:\\Users\\kashi\\Desktop\\StableDiffusion\\vlad-diffusion\\automatic\\models\\VAE",
+  "lora_dir": "C:\\Users\\kashi\\Desktop\\StableDiffusion\\vlad-diffusion\\automatic\\models\\Lora",
+  "embeddings_dir": "C:\\Users\\kashi\\Desktop\\StableDiffusion\\vlad-diffusion\\automatic\\models\\embeddings",
+}

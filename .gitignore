@@ -38,6 +38,8 @@ venv
 !webui.bat
 !webui.sh
 !package.json
+!config.json
+!default_config.json
 
 # all dynamic stuff
 /repositories/**/*
