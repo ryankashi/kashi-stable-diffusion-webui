@@ -1,15 +1,16 @@
 {
   "sd_backend": "original",
   "sd_checkpoint_autoload": true,
-  "sd_model_checkpoint": "model.ckpt",
+  "sd_model_checkpoint": "sd_xl_base_0.9.safetensors",
   "sd_model_refiner": "None",
   "sd_checkpoint_cache": 0,
   "sd_vae_checkpoint_cache": 0,
   "sd_vae": "Automatic",
   "sd_model_dict": "None",
-  "ckpt_dir": "C:\\Users\\kashi\\Desktop\\StableDiffusion\\vlad-diffusion\\automatic\\models\\Stable-diffusion",
-  "vae_dir": "C:\\Users\\kashi\\Desktop\\StableDiffusion\\vlad-diffusion\\automatic\\models\\VAE",
-  "lora_dir": "C:\\Users\\kashi\\Desktop\\StableDiffusion\\vlad-diffusion\\automatic\\models\\Lora",
-  "embeddings_dir": "C:\\Users\\kashi\\Desktop\\StableDiffusion\\vlad-diffusion\\automatic\\models\\embeddings",
-  "CLIP_stop_at_last_layers": 1
+  "ckpt_dir": "kashi-sdxl\\models\\Stable-diffusion",
+  "vae_dir": "kashi-sdxl\\models\\VAE",
+  "lora_dir": "kashi-sdxl\\models\\Lora",
+  "embeddings_dir": "kashi-sdxl\\models\\embeddings",
+  "CLIP_stop_at_last_layers": 1,
+  "clip_skip": 1
 }
