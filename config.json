@@ -1,7 +1,7 @@
 {
   "sd_backend": "original",
   "sd_checkpoint_autoload": true,
-  "sd_model_checkpoint": "v1-5-pruned-emaonly.safetensors",
+  "sd_model_checkpoint": "22922.safetensors",
   "sd_model_refiner": "None",
   "sd_checkpoint_cache": 0,
   "sd_vae_checkpoint_cache": 0,
@@ -55,7 +55,7 @@
   "clip_skip": 1,
   "uni_pc_lower_order_final": true,
   "uni_pc_order": 2,
-  "sd_checkpoint": "v1-5-pruned-emaonly.safetensors",
+  "sd_checkpoint": "22922.safetensors",
   "lora_preferred_name": "Alias from file",
   "lora_add_hashes_to_infotext": true,
   "control_net_model_config": "models\\cldm_v15.yaml",
