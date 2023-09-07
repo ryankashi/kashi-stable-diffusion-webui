@@ -9,12 +9,12 @@
 # Name of the subdirectory
 #clone_dir="stable-diffusion-webui"
 
-export COMMANDLINE_ARGS="--skip-torch-cuda-test --disable-console-progressbars --theme dark --api --port 7482 --no-half-vae --cors-allow-origins http://localhost:3434,http://localhost:3000 --ckpt-dir '/home/ryan/Desktop/makeayo/desktop_diffusion/package_windows/kashi-stable-diffusion-webui-master/models/Stable-diffusion' --lora-dir '/home/ryan/Desktop/makeayo/desktop_diffusion/package_windows/kashi-stable-diffusion-webui-master/models/Lora' --vae-dir '/home/ryan/Desktop/makeayo/desktop_diffusion/package_windows/kashi-stable-diffusion-webui-master/models/VAE' --xformers"
+export COMMANDLINE_ARGS="--port 7482"
 
 #export COMMANDLINE_ARGS=""
 
 # python3 executable
-#python_cmd="python3"
+python_cmd="python3"
 
 # git executable
 #export GIT="git"
