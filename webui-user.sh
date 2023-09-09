@@ -9,7 +9,7 @@
 # Name of the subdirectory
 #clone_dir="stable-diffusion-webui"
 
-export COMMANDLINE_ARGS="--xformers --port 7482 --disable-console-progressbars --cors-allow-origins http://localhost:3434,http://localhost:3000"
+export COMMANDLINE_ARGS="--xformers --api --port 7482 --disable-console-progressbars --cors-allow-origins http://localhost:3434,http://localhost:3000"
 
 #export COMMANDLINE_ARGS=""
 
