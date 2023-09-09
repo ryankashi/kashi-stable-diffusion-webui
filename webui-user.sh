@@ -9,12 +9,12 @@
 # Name of the subdirectory
 #clone_dir="stable-diffusion-webui"
 
-export COMMANDLINE_ARGS="--port 7482"
+export COMMANDLINE_ARGS="--xformers --listen --port 7482 --disable-console-progressbars --cors-allow-origins http://localhost:3434,http://localhost:3000"
 
 #export COMMANDLINE_ARGS=""
 
 # python3 executable
-python_cmd="python3"
+# python_cmd="python3"
 
 # git executable
 #export GIT="git"
