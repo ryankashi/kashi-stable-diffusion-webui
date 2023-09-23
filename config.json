@@ -181,5 +181,6 @@
         "batch",
         "override_settings",
         "scripts"
-    ]
+    ],
+    "auto_launch_browser": "Disable"
 }
