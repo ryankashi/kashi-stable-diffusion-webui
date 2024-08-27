@@ -1,6 +1,11 @@
 @echo off
 
+if exist webui.settings.bat (
+    call webui.settings.bat
+)
+
 if not defined PYTHON (set PYTHON=python)
+if defined GIT (set "GIT_PYTHON_GIT_EXECUTABLE=%GIT%")
 if not defined VENV_DIR (set "VENV_DIR=%~dp0%venv")
 
 set SD_WEBUI_RESTART=tmp/restart
@@ -36,8 +41,14 @@ if %ERRORLEVEL% == 0 goto :activate_venv
 echo Unable to create venv in directory "%VENV_DIR%"
 goto :show_stdout_stderr
 
+:upgrade_pip
+"%VENV_DIR%\Scripts\Python.exe" -m pip install --upgrade pip
+if %ERRORLEVEL% == 0 goto :activate_venv
+echo Warning: Failed to upgrade PIP version
+
 :activate_venv
 set PYTHON="%VENV_DIR%\Scripts\Python.exe"
+call "%VENV_DIR%\Scripts\activate.bat"
 echo venv %PYTHON%
 
 :skip_venv
