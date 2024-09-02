@@ -8,6 +8,8 @@ __pycache__
 /repositories
 /venv
 /tmp
+/cache
+/footprints
 /model.ckpt
 /models/**/*
 /GFPGANv1.3.pth
